@@ -5,7 +5,7 @@ function checkLength(text, b) {
   return false;
 }
 const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)];
-const getRandomInt = (min, max) => Math.floor(Math.random() * max - min) + min;
+const getRandomInt = (min, max) => Math.floor(Math.random() * max - min) + min+1;
 
 const makeUniqueRandomIntegerGenerator = (min, max) => {
   const previousValues = [];
