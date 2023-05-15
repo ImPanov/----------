@@ -23,6 +23,9 @@ const makeUniqueRandomIntegerGenerator = (min, max) => {
   };
 };
 
+const isEscEvent = (evt) => {
+  return evt.key === 'Escape' || evt.key === 'Esc';
+};
 export {
-  checkLength, getRandomElement, getRandomInt, makeUniqueRandomIntegerGenerator,
+  checkLength, getRandomElement, getRandomInt, makeUniqueRandomIntegerGenerator, isEscEvent
 };

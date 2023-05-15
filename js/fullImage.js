@@ -1,13 +1,21 @@
-import { getRandomInt } from './utils.js';
+import { getRandomInt, isEscEvent } from './utils.js';
 let fullImage = document.querySelector('.big-picture');
 let commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
 let commentList = document.querySelector('.social__comments');
 let fullImageClose = document.querySelector('.big-picture__cancel');
 
+const onPopupEscKeydown = (evt) => {
+  if (isEscEvent(evt)) {
+    evt.preventDefault();
+    closePicture();
+  }
+};
+
 let closePicture = function() {
   fullImage.classList.add('hidden');
   document.body.classList.remove('modal-open');
   fullImageClose.removeEventListener('click', closePicture);
+  document.removeEventListener('keydown', onPopupEscKeydown);
   commentList.innerHTML = '';
 }
 
@@ -24,6 +32,7 @@ let showPicture = function({id,url,description,likes,comments}) {
   fullImage.classList.remove('hidden');
   document.body.classList.add('modal-open');
   fullImageClose.addEventListener('click', closePicture);
+  document.addEventListener('keydown', onPopupEscKeydown);
 };
 
 let renderComments = function(comments) {
