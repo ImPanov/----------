@@ -170,7 +170,7 @@ main {
 }
 
 .img-filters__radio:focus + .img-filters__label {
-  outline: auto 5px highlight;
+  outline: auto 5px highlighted;
 }
 
 .img-filters__radio:checked + .img-filters__label {
@@ -190,7 +190,7 @@ main {
   display: grid;
   grid-gap: 10px;
 
-  -ms-grid-columns: (1fr)[7];
+  -ms-grid-columns: (1fr,7);
       grid-template-columns: repeat(7, 1fr);
 }
 
@@ -1359,7 +1359,7 @@ main {
   }
 
   .pictures {
-    -ms-grid-columns: (1fr)[5];
+    -ms-grid-columns: (1fr,5);
     grid-template-columns: repeat(5, 1fr);
   }
 
@@ -1380,7 +1380,7 @@ main {
   }
 
   .pictures {
-    -ms-grid-columns: (1fr)[3];
+    -ms-grid-columns: (1fr,3);
     grid-template-columns: repeat(3, 1fr);
   }
 
