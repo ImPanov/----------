@@ -1,7 +1,7 @@
 import {
   getRandomElement, getRandomInt, checkLength, makeUniqueRandomIntegerGenerator,
 } from './utils.js';
-
+const URL = 'https://23.javascript.pages.academy/kekstagram/data';
 const NAMES = ['John', 'Mary', 'Mike', 'Jack', 'Jill'];
 
 const MESSAGES = ['Всё отлично!',
@@ -17,7 +17,7 @@ const DESCRIPTIONS = ['классная фотка',
   'здесь я ем',
 ];
 
-const generateComments = ()=> {
+const generateComments = () => {
   let comments = [];
   let limit = getRandomInt(1, 3);
   for (let i = 0; i < limit; i++) {
@@ -35,10 +35,17 @@ const randomGenerator = makeUniqueRandomIntegerGenerator(1, 25);
 const createProfile = (index) => ({
   id: randomGenerator(),
   url: `./photos/${index}.jpg`,
-  descriptions: getRandomElement(DESCRIPTIONS),
+  description: getRandomElement(DESCRIPTIONS),
   likes: getRandomInt(0, 100),
   comments: generateComments(),
 });
-
-const photos = new Array(25).fill(null).map((_, i) => createProfile(i+1));
-export { photos };
+const getProfiles = function(onSuccess) {
+  fetch(URL).then((response)=>response.json())
+  .then((profiles)=>onSuccess(profiles)).then((response) => {
+    if (!response.ok) {
+      throw new Error();
+    }
+  })
+    .catch(() =>onSuccess(new Array(25).fill(null).map((_,i)=>createProfile(i+1))));
+};
+export { getProfiles };

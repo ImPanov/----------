@@ -1,4 +1,4 @@
-import { photos } from './data.js'
+import { getProfiles } from './data.js'
 import { showPicture } from './fullImage.js'
 const templatePicture = document.querySelector('#picture').content.querySelector('.picture');
 const pictureList = document.querySelector('.pictures')
@@ -18,14 +18,12 @@ const renderPhoto = ({url, comments, likes,description}) => {
 
   return previewPicture;
 };
-const renderPhotos = () => {
+const renderPhotos = (previews) => {
   let picturesListFragment = document.createDocumentFragment();
-
-  photos.forEach((photos) => {
-    picturesListFragment.appendChild(renderPhoto(photos));
+  previews.forEach((preview) => {
+    picturesListFragment.appendChild(renderPhoto(preview));
   });
 
   pictureList.appendChild(picturesListFragment);
 }
-
-export {renderPhotos};
+getProfiles(renderPhotos);
