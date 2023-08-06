@@ -80,7 +80,7 @@ const onEscCloseForm = function (evt) {
     closeForm();
   }
 }
-uploadImage.addEventListener('input', openForm);
+uploadImage.addEventListener('click', openForm);
 const closeForm = function () {
   uploadWindow.classList.add('hidden');
   document.body.classList.remove('modal-open');

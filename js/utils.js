@@ -26,6 +26,30 @@ const makeUniqueRandomIntegerGenerator = (min, max) => {
 const isEscEvent = (evt) => {
   return evt.key === 'Escape' || evt.key === 'Esc';
 };
+
+const shuffleArray = (arr) => {
+  let j, temp;
+  for (let i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+  }
+  return arr;
+}
+const debounce = (cb) => {
+  let lastTimeout = null;
+
+  return (...args) => {
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+    lastTimeout = window.setTimeout(() => {
+      cb(...args);
+    }, 500);
+  };
+};
+
 export {
-  checkLength, getRandomElement, getRandomInt, makeUniqueRandomIntegerGenerator, isEscEvent
+  checkLength, getRandomElement, getRandomInt, makeUniqueRandomIntegerGenerator, isEscEvent, shuffleArray, debounce
 };
