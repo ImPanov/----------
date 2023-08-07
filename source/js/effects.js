@@ -1,3 +1,4 @@
+let noUiSlider = window.noUiSlider;
 const Slider = {
   MAX: 100,
   MIN: 0,
@@ -57,7 +58,7 @@ const onEffectRadioGroupClick = (evt) => {
     setStyleImage();
   }
 };
-window.noUiSlider.create(effectLevelSlider, {
+noUiSlider.create(effectLevelSlider, {
   range: {
     min: Slider.MIN,
     max: Slider.MAX,

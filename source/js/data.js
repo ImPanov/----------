@@ -1,5 +1,5 @@
 import {
-  getRandomElement, getRandomInt, checkLength, makeUniqueRandomIntegerGenerator,
+  getRandomElement, getRandomInt, makeUniqueRandomIntegerGenerator
 } from './utils.js';
 const URL = 'https://23.javascript.pages.academy/kekstagram/data';
 const NAMES = ['John', 'Mary', 'Mike', 'Jack', 'Jill'];
@@ -41,11 +41,11 @@ const createProfile = (index) => ({
 });
 const getProfiles = function(onSuccess) {
   fetch(URL).then((response)=>response.json())
-  .then((profiles)=>onSuccess(profiles)).then((response) => {
-    if (!response.ok) {
-      throw new Error();
-    }
-  })
+    .then((profiles)=>onSuccess(profiles)).then((response) => {
+      if (!response.ok) {
+        throw new Error();
+      }
+    })
     .catch(() =>onSuccess(new Array(25).fill(null).map((_,i)=>createProfile(i+1))));
 };
 export { getProfiles };

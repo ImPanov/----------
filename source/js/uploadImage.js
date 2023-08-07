@@ -20,7 +20,7 @@ const messageSuccess = document.querySelector('#success').content.querySelector(
 const successBox = messageSuccess.querySelector('.success__inner');
 const successButton = messageSuccess.querySelector('.success__button');
 
-const onEscCloseSuccessMessage = function () {
+const onEscCloseSuccessMessage = function (evt) {
   if (isEscEvent(evt)) {
     closeSuccessMessage();
   }
@@ -46,7 +46,7 @@ const messageError = document.querySelector('#error').content.querySelector('.er
 const errorBox = messageError.querySelector('.error__inner');
 const errorButton = messageError.querySelector('.error__button');
 
-const onEscCloseErrorMessage = function () {
+const onEscCloseErrorMessage = function (evt) {
   if (isEscEvent(evt)) {
     closeErrorMessage();
   }
